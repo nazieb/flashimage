@@ -1,18 +1,34 @@
-# FastImage
+# FlashImage
 
-FastImage finds the dimensions or filetype of a remote image file given its uri by fetching as little as needed, based on the excellent [Ruby implementation by Stephen Sykes](https://github.com/sdsykes/fastimage).
+Get the type &amp; size information of an image by fetching as little as possible.
 
+This project is a fork of [Fastimage library by Tom Moor](https://github.com/tommoor/fastimage), which itself is a port of [Ruby implementation by Stephen Sykes](https://github.com/sdsykes/fastimage)
+
+The main difference with the original library is that this one uses a PSR-7 compatible HTTP adapter to fetch image from the web, thanks to [Ivory HTTP library by Eric Geloen](https://github.com/egeloen/ivory-http-adapter) 
+
+## Installation
+
+The recommended way to install FlashImage is by using [Composer](https://getcomposer.org)
+
+To add FlashImage as dependency to your project, add a dependency on nazieb/flashimage to your project's composer.json file. 
+
+```php
+{
+	"require": {
+		"nazieb/flashimage": "~1.0"
+	}
+}
+````
 
 ## Usage
-```php
-<?php 
-		
-require 'Fastimage.php';
-		
+
+The main class of the FlashImage is the `Flashimage\Factory` which will load the image and initialize all the resource needed to fetch the data
+
+```php	
 $uri = "http://farm9.staticflickr.com/8151/7357346052_54b8944f23_b.jpg";
 		
 // loading image into constructor
-$image = new FastImage($uri);
+$image = new Flashimage\Factory($uri);
 list($width, $height) = $image->getSize();
 echo "dimensions: " . $width . "x" . $height;
 
@@ -23,23 +39,15 @@ $type = $image->getType();
 echo "filetype: " . $type;
 ```
 
-## Composer
+### Supported Formats
 
-To add Fastimage as a local, per-project dependency to your project, simply add a dependency on fastimage/fastimage to your project's composer.json file. 
+Currently FlashImage only support 4 types of image: `png, jpeg, bmp, gif`.
 
-```php
-{
-	"require": {
-		"fastimage/fastimage": "dev-master"
-	}
-}
-````
-
-
-https://packagist.org/packages/fastimage/fastimage
+More to come, or if you think you can contribute to support more formats, please send a Pull Request.
 
 ## References
 
+* https://github.com/tommoor/fastimage
 * https://github.com/sdsykes/fastimage
 * http://pennysmalls.com/find-jpeg-dimensions-fast-in-pure-ruby-no-ima
 * http://snippets.dzone.com/posts/show/805
@@ -49,10 +57,4 @@ https://packagist.org/packages/fastimage/fastimage
 
 ## License
 
-FastImage is released under the MIT license. It is simple and easy to understand and places almost no restrictions on what you can do with the software. [More Information](http://en.wikipedia.org/wiki/MIT_License)
-
-
-## Download
-
-Releases are available for download from
-[GitHub](http://github.com/tommoor/fastimage/downloads).
+MIT
