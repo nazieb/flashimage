@@ -33,7 +33,7 @@ list($width, $height) = $image->getSize();
 echo "dimensions: " . $width . "x" . $height;
 
 // or, create an instance and use the 'load' method
-$image = new FastImage();
+$image = new Flashimage\Factory();
 $image->load($uri);
 $type = $image->getType();
 echo "filetype: " . $type;
