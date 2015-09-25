@@ -12,7 +12,7 @@ use Psr\Http\Message\StreamInterface;
 use Zend\Diactoros\Stream;
 
 /**
- * Flashimage - Get the type & size information of an image with a very little resource used
+ * Flashimage - Get the type & size information of an image by fetching as little as possible
  *
  * This is a fork project of Fastimage by Tom Moor (https://github.com/tommoor/fastimage)
  * which is based on the Ruby Implementation by Steven Sykes (https://github.com/sdsykes/fastimage)

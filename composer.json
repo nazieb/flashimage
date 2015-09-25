@@ -1,6 +1,6 @@
 {
 	"name": "nazieb/flashimage",
-	"description": "Get the type & size information of an image with a very little resource used",
+	"description": "Get the type & size information of an image by fetching as little as possible",
 	"type": "library",
 	"keywords": [
 		"flashimage",
